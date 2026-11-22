@@ -1,13 +1,40 @@
-# Direct Commander MCP для Codex
+# Direct Commander для Windows — CLI и MCP
 
 Плагин читает названия и статусы кампаний из открытого Яндекс Директ Коммандера для Windows. Он прокручивает таблицу до нужного столбца, возвращает ее в исходное положение и сверяет обе координаты. Если во время чтения вы прокрутите таблицу сами, операция остановится и сохранит вашу новую позицию.
+
+## CLI для PowerShell и cmd
+
+Для работы CLI нужны Windows, Node.js 22 или новее с npm, PowerShell 7.5 или новее и Директ Коммандер в стандартном каталоге текущего пользователя. Откройте приложение в том же сеансе Windows, что и терминал. CLI работает самостоятельно через сервер MCP из комплекта.
+
+Установите CLI из архива релиза на GitHub и проверьте связь с окном:
+
+```powershell
+npm.cmd install --global --ignore-scripts "https://github.com/rdsolod-ui/direct-commander-mcp/releases/download/v1.2.0/direct-commander-mcp-1.2.0.tgz"
+direct-commander status
+direct-commander panels
+```
+
+Если открыто несколько окон, добавьте к команде `--window <id>` с идентификатором из `status`. По умолчанию CLI работает с правой панелью (`sub`). Для левой укажите `--panel main`.
+
+На вкладке «Кампании» команда `campaigns` читает названия и статусы видимых строк. Если в нужной панели открыта другая вкладка, переключите ее командой `direct-commander tab campaigns`.
+
+```powershell
+direct-commander campaigns
+direct-commander campaigns --status "Активна"
+direct-commander campaigns --json
+direct-commander grid --column "Название" --column "Статус" --limit 5
+```
+
+`--status` отбирает строки по полному тексту статуса без учета регистра. Команда учитывает текущий быстрый фильтр Коммандера. За один вызов можно прочитать до 50 видимых строк. Для продолжения передайте значение `next_offset` из JSON в `--offset`. Позиция прокрутки до и после чтения именованных столбцов доступна в `scroll_before` и `scroll_after`.
+
+Команда `direct-commander filter "текст"` меняет быстрый поиск выбранной панели, а `direct-commander filter --clear` очищает его. Для автоматизации используйте `--json`. Результат выводится в stdout, ошибки — в stderr. Код выхода 0 означает успех, 1 — ошибку выполнения, 2 — ошибку аргументов. Полная справка доступна через `direct-commander --help`.
 
 ## Установка в Codex
 
 Потребуются Windows, Codex с командой `plugin marketplace add`, Node.js 22 или новее с npm и PowerShell 7.5 или новее. Установите Директ Коммандер в стандартный каталог текущего пользователя и откройте его в том же сеансе Windows, где работает Codex.
 
 ```powershell
-codex plugin marketplace add rdsolod-ui/direct-commander-mcp --ref v1.1.0
+codex plugin marketplace add rdsolod-ui/direct-commander-mcp --ref v1.2.0
 codex plugin add direct-commander@direct-commander-marketplace
 ```
 

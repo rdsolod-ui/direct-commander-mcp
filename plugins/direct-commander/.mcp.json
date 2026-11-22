@@ -8,7 +8,7 @@
         "npx.cmd",
         "--yes",
         "--ignore-scripts",
-        "--package=./direct-commander-mcp-1.1.0.tgz",
+        "--package=./direct-commander-mcp-1.2.0.tgz",
         "direct-commander-mcp"
       ],
       "startup_timeout_sec": 120,
