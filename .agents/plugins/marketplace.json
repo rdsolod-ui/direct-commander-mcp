@@ -1,0 +1,21 @@
+{
+  "name": "direct-commander-marketplace",
+  "interface": {
+    "displayName": "Direct Commander"
+  },
+  "plugins": [
+    {
+      "name": "direct-commander",
+      "source": {
+        "source": "local",
+        "path": "./plugins/direct-commander"
+      },
+      "pluginManifest": "./.codex-plugin/plugin.json",
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

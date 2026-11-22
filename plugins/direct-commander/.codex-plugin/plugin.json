@@ -1,0 +1,21 @@
+{
+  "name": "direct-commander",
+  "version": "1.1.0",
+  "description": "Read campaign names and statuses in the open Yandex Direct Commander desktop app.",
+  "author": {
+    "name": "rdsolod-ui"
+  },
+  "homepage": "https://github.com/rdsolod-ui/direct-commander-mcp",
+  "repository": "https://github.com/rdsolod-ui/direct-commander-mcp",
+  "requires_local_executor": true,
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Direct Commander",
+    "shortDescription": "Читайте таблицы Директ Коммандера в Codex",
+    "category": "Productivity",
+    "developerName": "rdsolod-ui",
+    "defaultPrompt": [
+      "Покажи названия и статусы кампаний в правой панели Коммандера."
+    ]
+  }
+}

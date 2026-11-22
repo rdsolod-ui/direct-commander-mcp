@@ -1,0 +1,27 @@
+{
+  "name": "direct-commander-mcp",
+  "version": "1.1.0",
+  "description": "Read and navigate the visible Yandex Direct Commander tables on Windows from Codex.",
+  "bin": {
+    "direct-commander-mcp": "server.cjs"
+  },
+  "files": [
+    "server.cjs",
+    "commander.ps1",
+    "npm-shrinkwrap.json"
+  ],
+  "os": [
+    "win32"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdsolod-ui/direct-commander-mcp.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "zod": "4.4.3"
+  }
+}
